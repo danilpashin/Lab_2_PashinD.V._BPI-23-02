@@ -20,6 +20,7 @@ namespace Lab_2_PashinD.V._BPI_23_02
     /// </summary>
     public partial class MainWindow : Window
     {
+        public GroupBox currentParams;
         public MainWindow()
         {
             InitializeComponent();
@@ -30,60 +31,125 @@ namespace Lab_2_PashinD.V._BPI_23_02
         {
             if (Radio1.IsChecked.GetValueOrDefault())
             {
-                double a = Convert.ToDouble(R1TextA.Text);
+                double a = 0;
                 double f = Convert.ToDouble(R1ComboF.Text);
-                this.Title = "Ответ: " + Math.Sin(f * a).ToString("F");
+                if(double.TryParse(R1TextA.Text,out a))
+                {
+                    this.Title = "Ответ: " + Math.Sin(f * a).ToString("F");
+                }
+                else
+                {
+                    MessageBox.Show("Один или несколько параметров не являются числами!");
+                    this.Title = "Ответ: ошибка в параметрах";
+                }
             }
 
             if (Radio2.IsChecked.GetValueOrDefault())
             {
-                double a = Convert.ToDouble(R2TextA.Text);
-                double b = Convert.ToDouble(R2TextB.Text);
+                double a = 0;
+                double b = 0;
                 double f = Convert.ToDouble(R2ComboF.Text);
-                this.Title = "Ответ: " + (Math.Cos(f * a) + Math.Sin(f * b)).ToString("F");
+                if (double.TryParse(R2TextA.Text, out a) && double.TryParse(R2TextB.Text, out b))
+                {
+                    this.Title = "Ответ: " + (Math.Cos(f * a) + Math.Sin(f * b)).ToString("F");
+                }
+                else
+                {
+                    MessageBox.Show("Один или несколько параметров не являются числами!");
+                    this.Title = "Ответ: ошибка в параметрах";
+                }
             }
 
             if (Radio3.IsChecked.GetValueOrDefault())
             {
-                double a = Convert.ToDouble(R3TextA.Text);
-                double b = Convert.ToDouble(R3TextA.Text);
+                double a = 0;
+                double b = 0;
                 double c = Convert.ToDouble(R3ComboC.Text);
                 double d = Convert.ToDouble(R3ComboD.Text);
-                this.Title = "Ответ: " + (c*a*a + d*b*b).ToString("F");
+                if (double.TryParse(R3TextA.Text, out a) && double.TryParse(R3TextB.Text, out b))
+                {
+                    this.Title = "Ответ: " + (c * a * a + d * b * b).ToString("F");
+                }
+                else
+                {
+                    MessageBox.Show("Один или несколько параметров не являются числами!");
+                    this.Title = "Ответ: ошибка в параметрах";
+                }
             }
 
             if (Radio4.IsChecked.GetValueOrDefault())
             {
-                double a = Convert.ToDouble(R4TextA.Text);
-                double d = Convert.ToDouble(R4TextD.Text);
+                double a = 0;
+                double d = 0;
                 double c = Convert.ToDouble(R4ComboC.Text);
                 double res = 1;
-                for(int i = 0; i < d; i++)
+                if (double.TryParse(R4TextA.Text, out a) && double.TryParse(R4TextD.Text, out d))
                 {
-                    res = res * (c + a) + 1;
+                    for (int i = 0; i < d; i++)
+                    {
+                        res = res * (c + a) + 1;
+                    }
+                    this.Title = "Ответ: " + res.ToString("F");
                 }
-                this.Title = "Ответ: " + res.ToString("F");
+                else
+                {
+                    MessageBox.Show("Один или несколько параметров не являются числами!");
+                    this.Title = "Ответ: ошибка в параметрах";
+                }   
             }
 
             if (Radio5.IsChecked.GetValueOrDefault())
             {
-                double p = Convert.ToDouble(R5TextP.Text);
-                double y = Convert.ToDouble(R5TextY.Text);
-                int N = Convert.ToInt32(R5TextN.Text);
+                double p = 0;
+                double y = 0;
+                int N = 1;
                 int K = Convert.ToInt32(R5TextK.Text);
-                double resInner = 1;
-                double res = 1;
-                for (int i = 1; i <= N; i++)
+                double resInner = 0;
+                double res = 0;
+                if(int.TryParse(R5TextN.Text, out N) && int.TryParse(R5TextK.Text, out K) && double.TryParse(R5TextP.Text, out p) && double.TryParse(R5TextY.Text, out y))
                 {
-                    for (int j = 1; j <= K; j++)
+                    if(N > 0 && K > 0)
                     {
-                        resInner = Math.Pow(p, i) * Math.Pow(y, j) / (i * j);
+                        for (int i = 1; i <= N; i++)
+                        {
+                            for (int j = 1; j <= K; j++)
+                            {
+                                resInner = Math.Pow(p, i) * Math.Pow(y, j) / (i * j);
+                            }
+                            res = res + resInner;
+                        }
+                        this.Title = "Ответ: " + res.ToString("F");
                     }
-                    res = res + resInner;
+                    else
+                    {
+                        MessageBox.Show("Один из параметров N, K равен или меньше нуля!");
+                        this.Title = "Ответ: ошибка в параметрах";
+                    }
                 }
-                this.Title = "Ответ: " + res.ToString("F");
+                else
+                {
+                    MessageBox.Show("Один или несколько параметров не являются числами!");
+                    this.Title = "Ответ: ошибка в параметрах";
+                }
             }
         }
+        
+
+
+        private void SetVisibilityParams(object sender, RoutedEventArgs e)
+        {
+            //if(sender)
+            //{
+            //    currentparams = params1;
+            //}
+            //else
+            //{
+            //    paramsvisible.visibility = visibility.visible;
+            //    currentparams.visibility = visibility.hidden;
+            //    currentparams = paramsvisible;
+            //}
+        }
+
         private void AddItems()
         {
             R1ComboF.Items.Add(4);
