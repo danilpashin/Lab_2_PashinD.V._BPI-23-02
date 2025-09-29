@@ -20,7 +20,7 @@ namespace Lab_2_PashinD.V._BPI_23_02
     /// </summary>
     public partial class MainWindow : Window
     {
-        public GroupBox currentParams;
+        //public GroupBox currentParams;
         public MainWindow()
         {
             InitializeComponent();
@@ -122,7 +122,7 @@ namespace Lab_2_PashinD.V._BPI_23_02
                     }
                     else
                     {
-                        MessageBox.Show("Один из параметров N, K равен или меньше нуля!");
+                        MessageBox.Show("N и K должны быть больше нуля!");
                         this.Title = "Ответ: ошибка в параметрах";
                     }
                 }
@@ -132,22 +132,6 @@ namespace Lab_2_PashinD.V._BPI_23_02
                     this.Title = "Ответ: ошибка в параметрах";
                 }
             }
-        }
-        
-
-
-        private void SetVisibilityParams(object sender, RoutedEventArgs e)
-        {
-            //if(sender)
-            //{
-            //    currentparams = params1;
-            //}
-            //else
-            //{
-            //    paramsvisible.visibility = visibility.visible;
-            //    currentparams.visibility = visibility.hidden;
-            //    currentparams = paramsvisible;
-            //}
         }
 
         private void AddItems()

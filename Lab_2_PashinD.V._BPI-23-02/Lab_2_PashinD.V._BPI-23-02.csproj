@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -64,6 +65,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Calc.cs" />
+    <Compile Include="CalcMain.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -96,19 +98,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\p1.png" />
+    <None Include="Resources\p5.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\p4.png" />
+    <None Include="Resources\p3.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\p2.png" />
+    <None Include="Resources\p1.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\p3.png" />
+    <None Include="Resources\p4.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\p5.png" />
+    <None Include="Resources\p2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
