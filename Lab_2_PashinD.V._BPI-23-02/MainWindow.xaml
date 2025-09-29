@@ -5,8 +5,86 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab_2_PashinD.V._BPI_23_02"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="MainWindow" Height="420" Width="700">
+    <StackPanel>
+        <RadioButton x:Name="Radio1" IsChecked="True" Margin="5">
+            <WrapPanel>
+                <Image Source="Images/p1.png" Height="35"/>
+                <GroupBox Header="Parameters">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="100"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="a" Grid.Column="0" Grid.Row="0"/>
+                        <TextBox Text="0,00" Grid.Column="1" Grid.Row="0" MinWidth="70" Name="R1TextA"/>
+                        <Label Content="f" Grid.Column="0" Grid.Row="1"/>
+                        <ComboBox Grid.Column="1" Grid.Row="1" SelectedIndex="0" Name="R1ComboF"/>
+                    </Grid>
+                </GroupBox>
+            </WrapPanel>
+        </RadioButton>
+        <RadioButton x:Name="Radio2" Margin="5">
+            <WrapPanel>
+                <Image Source="Images/p2.png" Height="27"/>
+                <GroupBox Header="Parameters">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="a"/>
+                        <TextBox Text="0,00" MinWidth="70" Name="R2TextA"/>
+                        <Label Content="b"/>
+                        <TextBox Text="0,00" MinWidth="70" Name="R2TextB"/>
+                        <Label Content="f"/>
+                        <ComboBox MinWidth="100" SelectedIndex="0" Name="R2ComboF"/>
+                    </StackPanel>
+                </GroupBox>
+            </WrapPanel>
+        </RadioButton>
+        <RadioButton x:Name="Radio3" Margin="5">
+            <WrapPanel>
+                <Image Source="Images/p3.png" Height="35"/>
+                <GroupBox Header="Parameters">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="a"/>
+                        <TextBox Text="0,00" MinWidth="50" Name="R3TextA"/>
+                        <Label Content="b"/>
+                        <TextBox Text="0,00" MinWidth="50" Name="R3TextB"/>
+                        <Label Content="c"/>
+                        <ComboBox Text="0,00" MinWidth="50" SelectedIndex="0" Name="R3ComboC"/>
+                        <Label Content="d"/>
+                        <ComboBox MinWidth="70" SelectedIndex="0" Name="R3ComboD"/>
+                    </StackPanel>
+                </GroupBox>
+            </WrapPanel>
+        </RadioButton>
+        <RadioButton x:Name="Radio4" Margin="5">
+            <WrapPanel>
+                <Image Source="Images/p4.png" Height="60"/>
+                <Label Content="c" VerticalAlignment="Center"/>
+                <ComboBox MinWidth="70" VerticalAlignment="Center" SelectedIndex="0" Name="R4ComboC"/>
+                <Label Content="d" VerticalAlignment="Center"/>
+                <TextBox Text="0,00" MinWidth="70" VerticalAlignment="Center" Name="R4TextD"/>
+                <Label Content="a" VerticalAlignment="Center"/>
+                <TextBox Text="0,00" MinWidth="70" VerticalAlignment="Center" Name="R4TextA"/>
+            </WrapPanel>
+        </RadioButton>
+        <RadioButton x:Name="Radio5" Margin="5">
+            <WrapPanel>
+                <Image Source="Images/p5.png" Height="60"/>
+                <Label Content="N" VerticalAlignment="Center"/>
+                <TextBox Text="0" MinWidth="70" VerticalAlignment="Center" Name="R5TextN"/>
+                <Label Content="K" VerticalAlignment="Center"/>
+                <TextBox Text="0" MinWidth="70" VerticalAlignment="Center" Name="R5TextK"/>
+                <Label Content="p" VerticalAlignment="Center"/>
+                <TextBox Text="0,00" MinWidth="70" VerticalAlignment="Center" Name="R5TextP"/>
+                <Label Content="y" VerticalAlignment="Center"/>
+                <TextBox Text="0,00" MinWidth="70" VerticalAlignment="Center" Name="R5TextY"/>
+            </WrapPanel>
+        </RadioButton>
+        <Button Click="Calc_Click" Content="Считать" Width="100"/>
+    </StackPanel>
+
 </Window>
