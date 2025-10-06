@@ -64,7 +64,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Calc.cs" />
+    <Compile Include="CalcA.cs" />
+    <Compile Include="CalcB.cs" />
+    <Compile Include="CalcC.cs" />
+    <Compile Include="CalcD.cs" />
+    <Compile Include="CalcE.cs" />
     <Compile Include="CalcMain.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -98,19 +102,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\p5.png" />
+    <Resource Include="Resources\p5.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\p3.png" />
+    <Resource Include="Resources\p3.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\p1.png" />
+    <Resource Include="Resources\p1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\p4.png" />
+    <Resource Include="Resources\p4.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\p2.png" />
+    <Resource Include="Resources\p2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

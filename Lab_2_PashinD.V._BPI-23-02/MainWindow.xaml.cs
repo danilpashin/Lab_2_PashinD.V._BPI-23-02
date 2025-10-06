@@ -20,121 +20,57 @@ namespace Lab_2_PashinD.V._BPI_23_02
     /// </summary>
     public partial class MainWindow : Window
     {
-        //public GroupBox currentParams;
+        public CalcA calcA;
+        public CalcB calcB;
+        public CalcC calcC;
+        public CalcD calcD;
+        public CalcE calcE;
         public MainWindow()
         {
             InitializeComponent();
-            AddItems();
+            setImages();
+            addItems();
         }
 
         private void Calc_Click(object sender, RoutedEventArgs e)
         {
             if (Radio1.IsChecked.GetValueOrDefault())
             {
-                double a = 0;
-                double f = Convert.ToDouble(R1ComboF.Text);
-                if(double.TryParse(R1TextA.Text,out a))
-                {
-                    this.Title = "Ответ: " + Math.Sin(f * a).ToString("F");
-                }
-                else
-                {
-                    MessageBox.Show("Один или несколько параметров не являются числами!");
-                    this.Title = "Ответ: ошибка в параметрах";
-                }
+                calcA = new CalcA(R1TextA.Text, Convert.ToDouble(R1ComboF.Text));
+                this.Title = "Ответ: " + calcA.Solve();
             }
-
             if (Radio2.IsChecked.GetValueOrDefault())
             {
-                double a = 0;
-                double b = 0;
-                double f = Convert.ToDouble(R2ComboF.Text);
-                if (double.TryParse(R2TextA.Text, out a) && double.TryParse(R2TextB.Text, out b))
-                {
-                    this.Title = "Ответ: " + (Math.Cos(f * a) + Math.Sin(f * b)).ToString("F");
-                }
-                else
-                {
-                    MessageBox.Show("Один или несколько параметров не являются числами!");
-                    this.Title = "Ответ: ошибка в параметрах";
-                }
+                calcB = new CalcB(R2TextA.Text, R2TextB.Text, Convert.ToDouble(R2ComboF.Text));
+                this.Title = "Ответ: " + calcB.Solve();
             }
-
             if (Radio3.IsChecked.GetValueOrDefault())
             {
-                double a = 0;
-                double b = 0;
-                double c = Convert.ToDouble(R3ComboC.Text);
-                double d = Convert.ToDouble(R3ComboD.Text);
-                if (double.TryParse(R3TextA.Text, out a) && double.TryParse(R3TextB.Text, out b))
-                {
-                    this.Title = "Ответ: " + (c * a * a + d * b * b).ToString("F");
-                }
-                else
-                {
-                    MessageBox.Show("Один или несколько параметров не являются числами!");
-                    this.Title = "Ответ: ошибка в параметрах";
-                }
+                calcC = new CalcC(R3TextA.Text, R3TextB.Text, Convert.ToDouble(R3ComboC.Text), Convert.ToDouble(R3ComboD.Text));
+                this.Title = "Ответ: " + calcC.Solve();
             }
-
             if (Radio4.IsChecked.GetValueOrDefault())
             {
-                double a = 0;
-                double d = 0;
-                double c = Convert.ToDouble(R4ComboC.Text);
-                double res = 1;
-                if (double.TryParse(R4TextA.Text, out a) && double.TryParse(R4TextD.Text, out d))
-                {
-                    for (int i = 0; i < d; i++)
-                    {
-                        res = res * (c + a) + 1;
-                    }
-                    this.Title = "Ответ: " + res.ToString("F");
-                }
-                else
-                {
-                    MessageBox.Show("Один или несколько параметров не являются числами!");
-                    this.Title = "Ответ: ошибка в параметрах";
-                }   
+                calcD = new CalcD(R4TextA.Text, R4TextD.Text, Convert.ToDouble(R4ComboC.Text));
+                this.Title = "Ответ: " + calcD.Solve();
             }
-
             if (Radio5.IsChecked.GetValueOrDefault())
             {
-                double p = 0;
-                double y = 0;
-                int N = 1;
-                int K = Convert.ToInt32(R5TextK.Text);
-                double resInner = 0;
-                double res = 0;
-                if(int.TryParse(R5TextN.Text, out N) && int.TryParse(R5TextK.Text, out K) && double.TryParse(R5TextP.Text, out p) && double.TryParse(R5TextY.Text, out y))
-                {
-                    if(N > 0 && K > 0)
-                    {
-                        for (int i = 1; i <= N; i++)
-                        {
-                            for (int j = 1; j <= K; j++)
-                            {
-                                resInner = Math.Pow(p, i) * Math.Pow(y, j) / (i * j);
-                            }
-                            res = res + resInner;
-                        }
-                        this.Title = "Ответ: " + res.ToString("F");
-                    }
-                    else
-                    {
-                        MessageBox.Show("N и K должны быть больше нуля!");
-                        this.Title = "Ответ: ошибка в параметрах";
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Один или несколько параметров не являются числами!");
-                    this.Title = "Ответ: ошибка в параметрах";
-                }
+                calcE = new CalcE(R5TextP.Text, R5TextY.Text, R5TextN.Text, R5TextK.Text);
+                this.Title = "Ответ: " + calcE.Solve();
             }
         }
 
-        private void AddItems()
+        private void setImages()
+        {
+            Img1.Source = new BitmapImage(new Uri(CalcA.Path, UriKind.Relative));
+            Img2.Source = new BitmapImage(new Uri(CalcB.Path, UriKind.Relative));
+            Img3.Source = new BitmapImage(new Uri(CalcC.Path, UriKind.Relative));
+            Img4.Source = new BitmapImage(new Uri(CalcD.Path, UriKind.Relative));
+            Img5.Source = new BitmapImage(new Uri(CalcE.Path, UriKind.Relative));
+        }
+
+        private void addItems()
         {
             R1ComboF.Items.Add(4);
             R1ComboF.Items.Add(5);

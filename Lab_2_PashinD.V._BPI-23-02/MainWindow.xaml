@@ -10,7 +10,7 @@
     <StackPanel>
         <RadioButton x:Name="Radio1" IsChecked="True" Margin="5">
             <WrapPanel>
-                <Image Source="Resources/p1.png" Height="35"/>
+                <Image x:Name="Img1" Height="35"/>
                 <GroupBox Header="Parameters" x:Name="Params1">
                     <Grid>
                         <Grid.RowDefinitions>
@@ -31,7 +31,7 @@
         </RadioButton>
         <RadioButton x:Name="Radio2" Margin="5">
             <WrapPanel>
-                <Image Source="Resources/p2.png" Height="27"/>
+                <Image x:Name="Img2" Height="27"/>
                 <GroupBox Header="Parameters" x:Name="Params2">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="a"/>
@@ -46,7 +46,7 @@
         </RadioButton>
         <RadioButton x:Name="Radio3" Margin="5">
             <WrapPanel>
-                <Image Source="Resources/p3.png" Height="35"/>
+                <Image x:Name="Img3" Height="35"/>
                 <GroupBox Header="Parameters" x:Name="Params3">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="a"/>
@@ -63,7 +63,7 @@
         </RadioButton>
         <RadioButton x:Name="Radio4" Margin="5">
             <WrapPanel>
-                <Image Source="Resources/p4.png" Height="60"/>
+                <Image x:Name="Img4" Height="60"/>
                 <GroupBox Header="Parameters" x:Name="Params4">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="c" VerticalAlignment="Center"/>
@@ -78,7 +78,7 @@
         </RadioButton>
         <RadioButton x:Name="Radio5" Margin="5">
             <WrapPanel>
-                <Image Source="Resources/p5.png" Height="60"/>
+                <Image x:Name="Img5" Height="60"/>
                 <GroupBox Header="Parameters" x:Name="Params5">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="N" VerticalAlignment="Center"/>
