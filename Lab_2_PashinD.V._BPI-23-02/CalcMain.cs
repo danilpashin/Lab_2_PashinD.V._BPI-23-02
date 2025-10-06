@@ -11,6 +11,5 @@ namespace Lab_2_PashinD.V._BPI_23_02
         public CalcMain() { }
         public virtual string Solve() { return null; }
 
-
     }
 }

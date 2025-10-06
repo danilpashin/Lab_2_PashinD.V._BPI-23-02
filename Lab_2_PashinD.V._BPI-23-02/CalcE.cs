@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +14,7 @@ namespace Lab_2_PashinD.V._BPI_23_02
         private double y = 0.0f;
         private int n = 1;
         private int k = 1;
-        private static string path = "Resources/p5.png";
+        private static string path = "pack://application:,,,/Resources/p5.png";
         private bool res = true;
 
         public double P { get; set; }
@@ -32,6 +34,7 @@ namespace Lab_2_PashinD.V._BPI_23_02
 
         public override string Solve()
         {
+
             if (res && n > 0 && k > 0)
             {
                 double ans = 0;

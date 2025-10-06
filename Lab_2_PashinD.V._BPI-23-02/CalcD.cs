@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,20 +13,20 @@ namespace Lab_2_PashinD.V._BPI_23_02
         private double a = 0.0f;
         private double c = 0.0f;
         private double d = 0.0f;
-        private static string path = "Resources/p4.png";
+        private static List<double> cValues = new List<double> { 0, 1, 2, 3, 4, 5 };
+        private static string path = "pack://application:,,,/Resources/p4.png";
         private bool res = true;
 
         public double A { get; set; }
-        public double B { get; set; }
         public double C { get; set; }
         public double D { get; set; }
+        public static List<double> CValues { get { return cValues; } set { } }
         public static string Path { get { return path; } set { } }
 
-        public CalcD(string A, string D, double C)
+        public CalcD(string A, string D, string C)
         {
-            if (double.TryParse(A, out a) && double.TryParse(D, out d))
+            if (double.TryParse(A, out a) && double.TryParse(D, out d) && double.TryParse(C, out c))
             {
-                c = C;
                 res = true;
             }
             else res = false;

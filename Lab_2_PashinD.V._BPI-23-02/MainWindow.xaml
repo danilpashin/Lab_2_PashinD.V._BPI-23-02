@@ -10,7 +10,7 @@
     <StackPanel>
         <RadioButton x:Name="Radio1" IsChecked="True" Margin="5">
             <WrapPanel>
-                <Image x:Name="Img1" Height="35"/>
+                <Image x:Name="Img1" Height="35" />
                 <GroupBox Header="Parameters" x:Name="Params1">
                     <Grid>
                         <Grid.RowDefinitions>
@@ -22,9 +22,9 @@
                             <ColumnDefinition Width="100"/>
                         </Grid.ColumnDefinitions>
                         <Label Content="a" Grid.Column="0" Grid.Row="0"/>
-                        <TextBox Text="0,00" Grid.Column="1" Grid.Row="0" MinWidth="70" Name="R1TextA"/>
+                        <TextBox Grid.Column="1" Grid.Row="0" MinWidth="70" Name="R1TextA"/>
                         <Label Content="f" Grid.Column="0" Grid.Row="1"/>
-                        <ComboBox Grid.Column="1" Grid.Row="1" SelectedIndex="0" Name="R1ComboF"/>
+                        <ComboBox Grid.Column="1" Grid.Row="1" Name="R1ComboF"/>
                     </Grid>
                 </GroupBox>
             </WrapPanel>
@@ -35,11 +35,11 @@
                 <GroupBox Header="Parameters" x:Name="Params2">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="a"/>
-                        <TextBox Text="0,00" MinWidth="70" Name="R2TextA"/>
+                        <TextBox MinWidth="70" Name="R2TextA"/>
                         <Label Content="b"/>
-                        <TextBox Text="0,00" MinWidth="70" Name="R2TextB"/>
+                        <TextBox MinWidth="70" Name="R2TextB"/>
                         <Label Content="f"/>
-                        <ComboBox MinWidth="100" SelectedIndex="0" Name="R2ComboF"/>
+                        <ComboBox MinWidth="100" Name="R2ComboF"/>
                     </StackPanel>
                 </GroupBox>
             </WrapPanel>
@@ -50,13 +50,13 @@
                 <GroupBox Header="Parameters" x:Name="Params3">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="a"/>
-                        <TextBox Text="0,00" MinWidth="50" Name="R3TextA"/>
+                        <TextBox MinWidth="50" Name="R3TextA"/>
                         <Label Content="b"/>
-                        <TextBox Text="0,00" MinWidth="50" Name="R3TextB"/>
+                        <TextBox MinWidth="50" Name="R3TextB"/>
                         <Label Content="c"/>
-                        <ComboBox Text="0,00" MinWidth="50" SelectedIndex="0" Name="R3ComboC"/>
+                        <ComboBox MinWidth="50" Name="R3ComboC"/>
                         <Label Content="d"/>
-                        <ComboBox MinWidth="70" SelectedIndex="0" Name="R3ComboD"/>
+                        <ComboBox MinWidth="70" Name="R3ComboD"/>
                     </StackPanel>
                 </GroupBox>
             </WrapPanel>
@@ -67,11 +67,11 @@
                 <GroupBox Header="Parameters" x:Name="Params4">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="c" VerticalAlignment="Center"/>
-                        <ComboBox MinWidth="70" VerticalAlignment="Center" SelectedIndex="0" Name="R4ComboC"/>
+                        <ComboBox MinWidth="70" VerticalAlignment="Center" Name="R4ComboC"/>
                         <Label Content="d" VerticalAlignment="Center"/>
-                        <TextBox Text="0,00" MinWidth="70" VerticalAlignment="Center" Name="R4TextD"/>
+                        <TextBox MinWidth="70" VerticalAlignment="Center" Name="R4TextD"/>
                         <Label Content="a" VerticalAlignment="Center"/>
-                        <TextBox Text="0,00" MinWidth="70" VerticalAlignment="Center" Name="R4TextA"/>
+                        <TextBox MinWidth="70" VerticalAlignment="Center" Name="R4TextA"/>
                     </StackPanel>
                 </GroupBox>
             </WrapPanel>
@@ -81,14 +81,14 @@
                 <Image x:Name="Img5" Height="60"/>
                 <GroupBox Header="Parameters" x:Name="Params5">
                     <StackPanel Orientation="Horizontal">
-                        <Label Content="N" VerticalAlignment="Center"/>
-                        <TextBox Text="1" MinWidth="70" VerticalAlignment="Center" Name="R5TextN"/>
-                        <Label Content="K" VerticalAlignment="Center"/>
-                        <TextBox Text="1" MinWidth="70" VerticalAlignment="Center" Name="R5TextK"/>
+                        <Label Content="N(>0)" VerticalAlignment="Center"/>
+                        <TextBox MinWidth="70" VerticalAlignment="Center" Name="R5TextN"/>
+                        <Label Content="K(>0)" VerticalAlignment="Center"/>
+                        <TextBox MinWidth="70" VerticalAlignment="Center" Name="R5TextK"/>
                         <Label Content="p" VerticalAlignment="Center"/>
-                        <TextBox Text="0,00" MinWidth="70" VerticalAlignment="Center" Name="R5TextP"/>
+                        <TextBox MinWidth="70" VerticalAlignment="Center" Name="R5TextP"/>
                         <Label Content="y" VerticalAlignment="Center"/>
-                        <TextBox Text="0,00" MinWidth="70" VerticalAlignment="Center" Name="R5TextY"/>
+                        <TextBox MinWidth="70" VerticalAlignment="Center" Name="R5TextY"/>
                     </StackPanel>
                 </GroupBox>
             </WrapPanel>
