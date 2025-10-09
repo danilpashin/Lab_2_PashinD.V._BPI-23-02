@@ -6,52 +6,47 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Collections.ObjectModel;
 
 namespace Lab_2_PashinD.V._BPI_23_02
 {
-    public class CalcA:CalcMain, INotifyPropertyChanged
+    public class CalcA : CalcMain, INotifyPropertyChanged
     {
-        private double a;
+        private string a = String.Empty;
         private double f;
-        private static List<double> fValues = new List<double> { 4, 5, 6, 7, 8, 9 };
+        private static ObservableCollection<double> fValues = new ObservableCollection<double> { 4, 5, 6, 7, 8, 9 };
         private static string path = "pack://application:,,,/Resources/p1.png";
         private bool res = true;
 
-        public double A
+        public string A
         {
             get { return a; }
             set
             {
                 a = value;
-                OnPropertyChanged("AText");
+                OnPropertyChanged(nameof(A));
             }
         }
         public double F 
-        { 
-            get { return f; } 
+        {
+            get => f;
             set 
             { 
                 f = value;
-                OnPropertyChanged("FText");
+                OnPropertyChanged(nameof(F));
             } 
         }
-        public static List<double> FValues { get { return fValues;  } set { } }
+        public ObservableCollection<double> FValues => fValues;
         public static string Path { get { return path; } set { } }
 
-        public CalcA(string A, string F)
-        {
-            if (double.TryParse(A, out a) && double.TryParse(F, out f))
-            {
-                res = true;
-            }
-            else res = false;
-        }
+
+        public CalcA() {}
 
         public override string Solve()
         {
             if (res)
             {
-                return Convert.ToString(Math.Sin(f * a));
+                return Convert.ToString(Math.Sin((Convert.ToDouble(A) * F)));
             }
             else
             {
@@ -63,8 +58,7 @@ namespace Lab_2_PashinD.V._BPI_23_02
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(prop));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
     }
 }

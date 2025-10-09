@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         SizeToContent="Height"
         Title="MainWindow" Height="Auto" Width="700" MinHeight="430" MinWidth="500">
+
     <StackPanel>
         <RadioButton x:Name="Radio1" IsChecked="True" Margin="5">
             <WrapPanel>
@@ -22,9 +23,10 @@
                             <ColumnDefinition Width="100"/>
                         </Grid.ColumnDefinitions>
                         <Label Content="a" Grid.Column="0" Grid.Row="0"/>
-                        <TextBox Grid.Column="1" Grid.Row="0" MinWidth="70" Name="R1TextA"/>
+                        <TextBox Text="{Binding Source={StaticResource CalcA}, Path=A, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="0" MinWidth="70" Name="R1TextA"/>
                         <Label Content="f" Grid.Column="0" Grid.Row="1"/>
-                        <ComboBox Grid.Column="1" Grid.Row="1" Name="R1ComboF"/>
+                        <ComboBox ItemsSource="{Binding Source={StaticResource CalcA}, Path=FValues}"
+                                  SelectedItem="{Binding Source={StaticResource CalcA}, Path=F, Mode=TwoWay}" Grid.Column="1" Grid.Row="1" Name="R1ComboF"/>
                     </Grid>
                 </GroupBox>
             </WrapPanel>
@@ -35,11 +37,12 @@
                 <GroupBox Header="Parameters" x:Name="Params2">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="a"/>
-                        <TextBox MinWidth="70" Name="R2TextA"/>
+                        <TextBox Text="{Binding Source={StaticResource CalcB}, Path=A, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MinWidth="70" Name="R2TextA"/>
                         <Label Content="b"/>
-                        <TextBox MinWidth="70" Name="R2TextB"/>
+                        <TextBox Text="{Binding Source={StaticResource CalcB}, Path=B, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MinWidth="70" Name="R2TextB"/>
                         <Label Content="f"/>
-                        <ComboBox MinWidth="100" Name="R2ComboF"/>
+                        <ComboBox ItemsSource="{Binding Source={StaticResource CalcB}, Path=FValues}"
+                                  SelectedItem="{Binding Source={StaticResource CalcB}, Path=F, Mode=TwoWay}" MinWidth="100" Name="R2ComboF"/>
                     </StackPanel>
                 </GroupBox>
             </WrapPanel>
@@ -50,13 +53,15 @@
                 <GroupBox Header="Parameters" x:Name="Params3">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="a"/>
-                        <TextBox MinWidth="50" Name="R3TextA"/>
+                        <TextBox Text="{Binding Source={StaticResource CalcC}, Path=A, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MinWidth="50" Name="R3TextA"/>
                         <Label Content="b"/>
-                        <TextBox MinWidth="50" Name="R3TextB"/>
+                        <TextBox Text="{Binding Source={StaticResource CalcC}, Path=B, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MinWidth="50" Name="R3TextB"/>
                         <Label Content="c"/>
-                        <ComboBox MinWidth="50" Name="R3ComboC"/>
+                        <ComboBox ItemsSource="{Binding Source={StaticResource CalcC}, Path=CValues}"
+                                  SelectedItem="{Binding Source={StaticResource CalcC}, Path=C, Mode=TwoWay}" SelectedIndex="-1" MinWidth="50" Name="R3ComboC"/>
                         <Label Content="d"/>
-                        <ComboBox MinWidth="70" Name="R3ComboD"/>
+                        <ComboBox ItemsSource="{Binding Source={StaticResource CalcC}, Path=DValues}"
+                                  SelectedItem="{Binding Source={StaticResource CalcC}, Path=D, Mode=TwoWay}" SelectedIndex="-1" MinWidth="70" Name="R3ComboD"/>
                     </StackPanel>
                 </GroupBox>
             </WrapPanel>
@@ -67,11 +72,12 @@
                 <GroupBox Header="Parameters" x:Name="Params4">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="c" VerticalAlignment="Center"/>
-                        <ComboBox MinWidth="70" VerticalAlignment="Center" Name="R4ComboC"/>
+                        <ComboBox ItemsSource="{Binding Source={StaticResource CalcD}, Path=CValues}"
+                                  SelectedItem="{Binding Source={StaticResource CalcD}, Path=C, Mode=TwoWay}" MinWidth="70" VerticalAlignment="Center" Name="R4ComboC"/>
                         <Label Content="d" VerticalAlignment="Center"/>
-                        <TextBox MinWidth="70" VerticalAlignment="Center" Name="R4TextD"/>
+                        <TextBox Text="{Binding Source={StaticResource CalcD}, Path=D, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MinWidth="70" VerticalAlignment="Center" Name="R4TextD"/>
                         <Label Content="a" VerticalAlignment="Center"/>
-                        <TextBox MinWidth="70" VerticalAlignment="Center" Name="R4TextA"/>
+                        <TextBox Text="{Binding Source={StaticResource CalcD}, Path=A, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MinWidth="70" VerticalAlignment="Center" Name="R4TextA"/>
                     </StackPanel>
                 </GroupBox>
             </WrapPanel>
@@ -82,13 +88,13 @@
                 <GroupBox Header="Parameters" x:Name="Params5">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="N(>0)" VerticalAlignment="Center"/>
-                        <TextBox MinWidth="70" VerticalAlignment="Center" Name="R5TextN"/>
+                        <TextBox Text="{Binding Source={StaticResource CalcE}, Path=N, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MinWidth="70" VerticalAlignment="Center" Name="R5TextN"/>
                         <Label Content="K(>0)" VerticalAlignment="Center"/>
-                        <TextBox MinWidth="70" VerticalAlignment="Center" Name="R5TextK"/>
+                        <TextBox Text="{Binding Source={StaticResource CalcE}, Path=K, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MinWidth="70" VerticalAlignment="Center" Name="R5TextK"/>
                         <Label Content="p" VerticalAlignment="Center"/>
-                        <TextBox MinWidth="70" VerticalAlignment="Center" Name="R5TextP"/>
+                        <TextBox Text="{Binding Source={StaticResource CalcE}, Path=P, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MinWidth="70" VerticalAlignment="Center" Name="R5TextP"/>
                         <Label Content="y" VerticalAlignment="Center"/>
-                        <TextBox MinWidth="70" VerticalAlignment="Center" Name="R5TextY"/>
+                        <TextBox Text="{Binding Source={StaticResource CalcE}, Path=Y, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MinWidth="70" VerticalAlignment="Center" Name="R5TextY"/>
                     </StackPanel>
                 </GroupBox>
             </WrapPanel>
