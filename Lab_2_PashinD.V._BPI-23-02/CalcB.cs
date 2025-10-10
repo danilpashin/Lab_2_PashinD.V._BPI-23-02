@@ -9,18 +9,18 @@ using System.Collections.ObjectModel;
 
 namespace Lab_2_PashinD.V._BPI_23_02
 {
-    public class CalcB : CalcMain, INotifyPropertyChanged
+    public class CalcB : CalcMain, INotifyPropertyChanged, IDataErrorInfo
     {
         private string a = String.Empty;
         private string b = String.Empty;
-        private double f;
+        private double? f;
         private static ObservableCollection<double> fValues = new ObservableCollection<double> { 10, 20, 30, 40 };
         private static string path = "pack://application:,,,/Resources/p2.png";
         private bool res = true;
 
         public string A
         {
-            get { return a; }
+            get => a;
             set
             {
                 a = value;
@@ -29,14 +29,14 @@ namespace Lab_2_PashinD.V._BPI_23_02
         }
         public string B
         {
-            get { return b; }
+            get => b;
             set
             {
                 b = value;
                 OnPropertyChanged(nameof(B));
             }
         }
-        public double F
+        public double? F
         {
             get => f;
             set
@@ -46,7 +46,7 @@ namespace Lab_2_PashinD.V._BPI_23_02
             }
         }
         public ObservableCollection<double> FValues => fValues;
-        public static string Path { get { return path; } set { } }
+        public static string Path { get => path; set { } }
 
         public CalcB() {}
 
@@ -54,13 +54,49 @@ namespace Lab_2_PashinD.V._BPI_23_02
         {
             if (res)
             {
-                return Convert.ToString(Math.Cos(F * Convert.ToDouble(A)) + Math.Sin(F * Convert.ToDouble(B)));
+                return Convert.ToString(Math.Cos((double)(F * Convert.ToDouble(A))) + Math.Sin((double)(F * Convert.ToDouble(B))));
             }
             else
             {
                 return "ошибка в параметрах";
             }
 
+        }
+
+        public string this[string columnName]
+        {
+            get
+            {
+                string error = String.Empty;
+                double num;
+                if (!double.TryParse(A, out num))
+                {
+                    error = "Некорректный ввод";
+                }
+
+                if (!double.TryParse(B, out num))
+                {
+                    error = "Некорректный ввод";
+                }
+
+                if (!F.HasValue)
+                {
+                    error = "Не выбрано значение из списка";
+                }
+
+                if (error != String.Empty)
+                {
+                    res = false;
+                    error = String.Empty;
+                }
+                else res = true;
+
+                return error;
+            }
+        }
+        public string Error
+        {
+            get { throw new NotImplementedException(); }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

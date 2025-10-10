@@ -29,39 +29,68 @@ namespace Lab_2_PashinD.V._BPI_23_02
         {
             InitializeComponent();
             setImages();
-            setBindings();
+            setClasses();
+        }
+
+        private void Radio_Checked(object sender, RoutedEventArgs e)
+        {
+            if (Radio1.IsChecked.GetValueOrDefault())
+            {
+                setUsing(Params1);
+            }
+            else if (Radio2.IsChecked.GetValueOrDefault())
+            {
+                setUsing(Params2);
+            }
+            else if (Radio3.IsChecked.GetValueOrDefault())
+            {
+                setUsing(Params3);
+            }
+            else if (Radio4.IsChecked.GetValueOrDefault())
+            {
+                setUsing(Params4);
+            }
+            else if (Radio5.IsChecked.GetValueOrDefault())
+            {
+                setUsing(Params5);
+            }
         }
 
         private void Calc_Click(object sender, RoutedEventArgs e)
         {
             if (Radio1.IsChecked.GetValueOrDefault())
             {
-                MessageBox.Show(calcA.A + " " + calcA.F);
                 this.Title = "Ответ: " + calcA.Solve();
             }
             else if (Radio2.IsChecked.GetValueOrDefault())
             {
-                MessageBox.Show(calcB.A + " " + calcB.B + " " + calcB.F);
                 this.Title = "Ответ: " + calcB.Solve();
             }
             else if (Radio3.IsChecked.GetValueOrDefault())
             {
-                MessageBox.Show(calcC.A + " " + calcC.B + " " + calcC.C + " " + calcC.D);
                 this.Title = "Ответ: " + calcC.Solve();
             }
             else if (Radio4.IsChecked.GetValueOrDefault())
             {
-                MessageBox.Show(calcD.C + " " + calcD.D + " " + calcD.A);
                 this.Title = "Ответ: " + calcD.Solve();
             }
             else if (Radio5.IsChecked.GetValueOrDefault())
             {
-                MessageBox.Show(calcE.N + " " + calcE.K + " " + calcE.P + " " + calcE.Y);
                 this.Title = "Ответ: " + calcE.Solve();
             }
         }
 
-        private void setBindings()
+        private void setUsing(GroupBox currGroupBox)
+        {
+            Params1.IsEnabled = false;
+            Params2.IsEnabled = false;
+            Params3.IsEnabled = false;
+            Params4.IsEnabled = false;
+            Params5.IsEnabled = false;
+            currGroupBox.IsEnabled = true;
+        }
+
+        private void setClasses()
         {
             calcA = (CalcA)Application.Current.FindResource("CalcA");
             calcB = (CalcB)Application.Current.FindResource("CalcB");

@@ -9,7 +9,7 @@
         Title="MainWindow" Height="Auto" Width="700" MinHeight="430" MinWidth="500">
 
     <StackPanel>
-        <RadioButton x:Name="Radio1" IsChecked="True" Margin="5">
+        <RadioButton x:Name="Radio1" Margin="5" Checked="Radio_Checked">
             <WrapPanel>
                 <Image x:Name="Img1" Height="35" />
                 <GroupBox Header="Parameters" x:Name="Params1">
@@ -23,78 +23,202 @@
                             <ColumnDefinition Width="100"/>
                         </Grid.ColumnDefinitions>
                         <Label Content="a" Grid.Column="0" Grid.Row="0"/>
-                        <TextBox Text="{Binding Source={StaticResource CalcA}, Path=A, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="0" MinWidth="70" Name="R1TextA"/>
+                        <TextBox Grid.Column="1" Grid.Row="0" MinWidth="70" Name="R1TextA">
+                            <TextBox.Text>
+                                <Binding Source="{StaticResource CalcA}" Path="A" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <DataErrorValidationRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
                         <Label Content="f" Grid.Column="0" Grid.Row="1"/>
                         <ComboBox ItemsSource="{Binding Source={StaticResource CalcA}, Path=FValues}"
-                                  SelectedItem="{Binding Source={StaticResource CalcA}, Path=F, Mode=TwoWay}" Grid.Column="1" Grid.Row="1" Name="R1ComboF"/>
+                                  Grid.Column="1" Grid.Row="1" Name="R1ComboF">
+                            <ComboBox.SelectedItem>
+                                <Binding Source="{StaticResource CalcA}" Path="F" Mode="TwoWay">
+                                    <Binding.ValidationRules>
+                                        <DataErrorValidationRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </ComboBox.SelectedItem>
+                        </ComboBox>
                     </Grid>
                 </GroupBox>
             </WrapPanel>
         </RadioButton>
-        <RadioButton x:Name="Radio2" Margin="5">
+        <RadioButton x:Name="Radio2" Margin="5" Checked="Radio_Checked">
             <WrapPanel>
                 <Image x:Name="Img2" Height="27"/>
                 <GroupBox Header="Parameters" x:Name="Params2">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="a"/>
-                        <TextBox Text="{Binding Source={StaticResource CalcB}, Path=A, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MinWidth="70" Name="R2TextA"/>
+                        <TextBox MinWidth="70" Name="R2TextA">
+                            <TextBox.Text>
+                                <Binding Source="{StaticResource CalcB}" Path="A" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <DataErrorValidationRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
                         <Label Content="b"/>
-                        <TextBox Text="{Binding Source={StaticResource CalcB}, Path=B, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MinWidth="70" Name="R2TextB"/>
+                        <TextBox MinWidth="70" Name="R2TextB">
+                            <TextBox.Text>
+                                <Binding Source="{StaticResource CalcB}" Path="B" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <DataErrorValidationRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
                         <Label Content="f"/>
-                        <ComboBox ItemsSource="{Binding Source={StaticResource CalcB}, Path=FValues}"
-                                  SelectedItem="{Binding Source={StaticResource CalcB}, Path=F, Mode=TwoWay}" MinWidth="100" Name="R2ComboF"/>
+                        <ComboBox ItemsSource="{Binding Source={StaticResource CalcB}, Path=FValues}" MinWidth="30" Name="R2ComboF">
+                            <ComboBox.SelectedItem>
+                                <Binding Source="{StaticResource CalcB}" Path="F" Mode="TwoWay">
+                                    <Binding.ValidationRules>
+                                        <DataErrorValidationRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </ComboBox.SelectedItem>
+                        </ComboBox>
                     </StackPanel>
                 </GroupBox>
             </WrapPanel>
         </RadioButton>
-        <RadioButton x:Name="Radio3" Margin="5">
+        <RadioButton x:Name="Radio3" Margin="5" Checked="Radio_Checked">
             <WrapPanel>
                 <Image x:Name="Img3" Height="35"/>
                 <GroupBox Header="Parameters" x:Name="Params3">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="a"/>
-                        <TextBox Text="{Binding Source={StaticResource CalcC}, Path=A, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MinWidth="50" Name="R3TextA"/>
+                        <TextBox MinWidth="70" Name="R3TextA">
+                            <TextBox.Text>
+                                <Binding Source="{StaticResource CalcC}" Path="A" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <DataErrorValidationRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
                         <Label Content="b"/>
-                        <TextBox Text="{Binding Source={StaticResource CalcC}, Path=B, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MinWidth="50" Name="R3TextB"/>
+                        <TextBox MinWidth="70" Name="R3TextB">
+                            <TextBox.Text>
+                                <Binding Source="{StaticResource CalcC}" Path="B" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <DataErrorValidationRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
                         <Label Content="c"/>
-                        <ComboBox ItemsSource="{Binding Source={StaticResource CalcC}, Path=CValues}"
-                                  SelectedItem="{Binding Source={StaticResource CalcC}, Path=C, Mode=TwoWay}" SelectedIndex="-1" MinWidth="50" Name="R3ComboC"/>
+                        <ComboBox ItemsSource="{Binding Source={StaticResource CalcC}, Path=CValues}" MinWidth="30" Name="R3ComboC">
+                            <ComboBox.SelectedItem>
+                                <Binding Source="{StaticResource CalcC}" Path="C" Mode="TwoWay">
+                                    <Binding.ValidationRules>
+                                        <DataErrorValidationRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </ComboBox.SelectedItem>
+                        </ComboBox>
                         <Label Content="d"/>
-                        <ComboBox ItemsSource="{Binding Source={StaticResource CalcC}, Path=DValues}"
-                                  SelectedItem="{Binding Source={StaticResource CalcC}, Path=D, Mode=TwoWay}" SelectedIndex="-1" MinWidth="70" Name="R3ComboD"/>
+                        <ComboBox ItemsSource="{Binding Source={StaticResource CalcC}, Path=DValues}" MinWidth="30" Name="R3ComboD">
+                            <ComboBox.SelectedItem>
+                                <Binding Source="{StaticResource CalcC}" Path="D" Mode="TwoWay">
+                                    <Binding.ValidationRules>
+                                        <DataErrorValidationRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </ComboBox.SelectedItem>
+                        </ComboBox>
                     </StackPanel>
                 </GroupBox>
             </WrapPanel>
         </RadioButton>
-        <RadioButton x:Name="Radio4" Margin="5">
+        <RadioButton x:Name="Radio4" Margin="5" Checked="Radio_Checked">
             <WrapPanel>
                 <Image x:Name="Img4" Height="60"/>
                 <GroupBox Header="Parameters" x:Name="Params4">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="c" VerticalAlignment="Center"/>
-                        <ComboBox ItemsSource="{Binding Source={StaticResource CalcD}, Path=CValues}"
-                                  SelectedItem="{Binding Source={StaticResource CalcD}, Path=C, Mode=TwoWay}" MinWidth="70" VerticalAlignment="Center" Name="R4ComboC"/>
+                        <ComboBox ItemsSource="{Binding Source={StaticResource CalcD}, Path=CValues}" MinWidth="30" VerticalAlignment="Center" Name="R4ComboC">
+                            <ComboBox.SelectedItem>
+                                <Binding Source="{StaticResource CalcD}" Path="C" Mode="TwoWay">
+                                    <Binding.ValidationRules>
+                                        <DataErrorValidationRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </ComboBox.SelectedItem>
+                        </ComboBox>
                         <Label Content="d" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Source={StaticResource CalcD}, Path=D, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MinWidth="70" VerticalAlignment="Center" Name="R4TextD"/>
+                        <TextBox MinWidth="70" VerticalAlignment="Center" Name="R4TextD">
+                            <TextBox.Text>
+                                <Binding Source="{StaticResource CalcD}" Path="D" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <DataErrorValidationRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
                         <Label Content="a" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Source={StaticResource CalcD}, Path=A, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MinWidth="70" VerticalAlignment="Center" Name="R4TextA"/>
+                        <TextBox MinWidth="70" VerticalAlignment="Center" Name="R4TextA">
+                            <TextBox.Text>
+                                <Binding Source="{StaticResource CalcD}" Path="A" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <DataErrorValidationRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
                     </StackPanel>
                 </GroupBox>
             </WrapPanel>
         </RadioButton>
-        <RadioButton x:Name="Radio5" Margin="5">
+        <RadioButton x:Name="Radio5" Margin="5" Checked="Radio_Checked">
             <WrapPanel>
                 <Image x:Name="Img5" Height="60"/>
                 <GroupBox Header="Parameters" x:Name="Params5">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="N(>0)" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Source={StaticResource CalcE}, Path=N, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MinWidth="70" VerticalAlignment="Center" Name="R5TextN"/>
+                        <TextBox MinWidth="70" VerticalAlignment="Center" Name="R5TextN">
+                            <TextBox.Text>
+                                <Binding Source="{StaticResource CalcE}" Path="N" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <DataErrorValidationRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
                         <Label Content="K(>0)" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Source={StaticResource CalcE}, Path=K, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MinWidth="70" VerticalAlignment="Center" Name="R5TextK"/>
+                        <TextBox MinWidth="70" VerticalAlignment="Center" Name="R5TextK">
+                            <TextBox.Text>
+                                <Binding Source="{StaticResource CalcE}" Path="K" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <DataErrorValidationRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
                         <Label Content="p" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Source={StaticResource CalcE}, Path=P, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MinWidth="70" VerticalAlignment="Center" Name="R5TextP"/>
+                        <TextBox MinWidth="70" VerticalAlignment="Center" Name="R5TextP">
+                            <TextBox.Text>
+                                <Binding Source="{StaticResource CalcE}" Path="P" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <DataErrorValidationRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
                         <Label Content="y" VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding Source={StaticResource CalcE}, Path=Y, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" MinWidth="70" VerticalAlignment="Center" Name="R5TextY"/>
+                        <TextBox MinWidth="70" VerticalAlignment="Center" Name="R5TextY">
+                            <TextBox.Text>
+                                <Binding Source="{StaticResource CalcE}" Path="Y" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <DataErrorValidationRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
                     </StackPanel>
                 </GroupBox>
             </WrapPanel>

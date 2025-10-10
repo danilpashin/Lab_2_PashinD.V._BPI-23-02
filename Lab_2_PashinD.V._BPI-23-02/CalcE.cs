@@ -5,10 +5,11 @@ using System.Runtime.CompilerServices;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Lab_2_PashinD.V._BPI_23_02
 {
-    public class CalcE : CalcMain, INotifyPropertyChanged
+    public class CalcE : CalcMain, INotifyPropertyChanged, IDataErrorInfo
     {
         private string p;
         private string y;
@@ -19,7 +20,7 @@ namespace Lab_2_PashinD.V._BPI_23_02
 
         public string P
         {
-            get { return p; }
+            get => p;
             set
             {
                 p = value;
@@ -28,7 +29,7 @@ namespace Lab_2_PashinD.V._BPI_23_02
         }
         public string Y
         {
-            get { return y; }
+            get => y;
             set
             {
                 y = value;
@@ -37,7 +38,7 @@ namespace Lab_2_PashinD.V._BPI_23_02
         }
         public string N
         {
-            get { return n; }
+            get => n;
             set
             {
                 n = value;
@@ -46,14 +47,14 @@ namespace Lab_2_PashinD.V._BPI_23_02
         }
         public string K
         {
-            get { return k; }
+            get => k;
             set
             {
                 k = value;
                 OnPropertyChanged(nameof(K));
             }
         }
-        public static string Path { get { return path; } set { } }
+        public static string Path { get => path; set { } }
 
         public CalcE() {}
 
@@ -79,6 +80,57 @@ namespace Lab_2_PashinD.V._BPI_23_02
                 return "ошибка в параметрах";
             }
 
+        }
+
+        public string this[string columnName]
+        {
+            get
+            {
+                string error = String.Empty;
+                double num;
+                if (!double.TryParse(N, out num))
+                {
+                    error = "Некорректный ввод";
+                }
+                else if (Convert.ToDouble(N) < 1)
+                {
+                    MessageBox.Show("N должно быть больше нуля!");
+                    error = "N меньше 1";
+                }
+
+                if (!double.TryParse(K, out num))
+                {
+                    error = "Некорректный ввод";
+                }
+                else if (Convert.ToDouble(K) < 1)
+                {
+                    MessageBox.Show("K должно быть больше нуля!");
+                    error = "K меньше 1";
+                }
+
+                if (!double.TryParse(P, out num))
+                {
+                    error = "Некорректный ввод";
+                }
+
+                if (!double.TryParse(Y, out num))
+                {
+                    error = "Некорректный ввод";
+                }
+
+                if (error != String.Empty)
+                {
+                    res = false;
+                    error = String.Empty;
+                }
+                else res = true;
+
+                return error;
+            }
+        }
+        public string Error
+        {
+            get { throw new NotImplementedException(); }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
