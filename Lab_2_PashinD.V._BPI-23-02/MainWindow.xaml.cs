@@ -30,6 +30,7 @@ namespace Lab_2_PashinD.V._BPI_23_02
             InitializeComponent();
             setImages();
             setClasses();
+            setUsingStart();
         }
 
         private void Radio_Checked(object sender, RoutedEventArgs e)
@@ -88,6 +89,15 @@ namespace Lab_2_PashinD.V._BPI_23_02
             Params4.IsEnabled = false;
             Params5.IsEnabled = false;
             currGroupBox.IsEnabled = true;
+        }
+
+        private void setUsingStart()
+        {
+            Params1.IsEnabled = false;
+            Params2.IsEnabled = false;
+            Params3.IsEnabled = false;
+            Params4.IsEnabled = false;
+            Params5.IsEnabled = false;
         }
 
         private void setClasses()
