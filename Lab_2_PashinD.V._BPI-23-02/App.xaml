@@ -11,7 +11,8 @@
             <local:CalcD x:Key="CalcD"/>
             <local:CalcE x:Key="CalcE"/>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Styles/MainTheme.xaml"/>
+                <ResourceDictionary Source="Styles/maintheme.xaml"/>
+                <ResourceDictionary Source="/Styles/alttheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

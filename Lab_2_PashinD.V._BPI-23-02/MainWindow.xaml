@@ -8,7 +8,23 @@
         SizeToContent="Height"
         Title="MainWindow" Height="Auto" Width="700" MinHeight="430" MinWidth="500">
 
+    <Window.Resources>
+        <Style x:Key="LabelStyle" TargetType="Label">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="Bahnschrift Light"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding SelectedValue, ElementName=styleBox}" Value="maintheme">
+                    <Setter Property="Foreground" Value="#FF226B86"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding SelectedValue, ElementName=styleBox}" Value="alttheme">
+                    <Setter Property="Foreground" Value="White"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    
     <StackPanel>
+        <ComboBox x:Name="styleBox"/>
         <RadioButton x:Name="Radio1" Margin="5" Checked="Radio_Checked">
             <WrapPanel>
                 <Image x:Name="Img1" Height="27" />
@@ -22,7 +38,7 @@
                             <ColumnDefinition/>
                             <ColumnDefinition Width="100"/>
                         </Grid.ColumnDefinitions>
-                        <Label Content="a" Grid.Column="0" Grid.Row="0"/>
+                        <Label Content="a" Grid.Column="0" Grid.Row="0" Style="{DynamicResource LabelStyle}"/>
                         <TextBox Grid.Column="1" Grid.Row="0" MinWidth="70" Name="R1TextA">
                             <TextBox.Text>
                                 <Binding Source="{StaticResource CalcA}" Path="A" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
@@ -32,7 +48,7 @@
                                 </Binding>
                             </TextBox.Text>
                         </TextBox>
-                        <Label Content="f" Grid.Column="0" Grid.Row="1"/>
+                        <Label Content="f" Grid.Column="0" Grid.Row="1" Style="{DynamicResource LabelStyle}"/>
                         <ComboBox ItemsSource="{Binding Source={StaticResource CalcA}, Path=FValues}"
                                   Grid.Column="1" Grid.Row="1" Name="R1ComboF">
                             
@@ -53,7 +69,7 @@
                 <Image x:Name="Img2" Height="27"/>
                 <GroupBox Header="Parameters" x:Name="Params2">
                     <StackPanel Orientation="Horizontal">
-                        <Label Content="a"/>
+                        <Label Content="a" Style="{DynamicResource LabelStyle}"/>
                         <TextBox MinWidth="70" Name="R2TextA">
                             <TextBox.Text>
                                 <Binding Source="{StaticResource CalcB}" Path="A" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
@@ -63,7 +79,7 @@
                                 </Binding>
                             </TextBox.Text>
                         </TextBox>
-                        <Label Content="b"/>
+                        <Label Content="b" Style="{DynamicResource LabelStyle}"/>
                         <TextBox MinWidth="70" Name="R2TextB">
                             <TextBox.Text>
                                 <Binding Source="{StaticResource CalcB}" Path="B" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
@@ -73,7 +89,7 @@
                                 </Binding>
                             </TextBox.Text>
                         </TextBox>
-                        <Label Content="f"/>
+                        <Label Content="f" Style="{DynamicResource LabelStyle}"/>
                         <ComboBox ItemsSource="{Binding Source={StaticResource CalcB}, Path=FValues}" MinWidth="30" Name="R2ComboF">
                             <ComboBox.SelectedItem>
                                 <Binding Source="{StaticResource CalcB}" Path="F" Mode="TwoWay">
@@ -92,7 +108,7 @@
                 <Image x:Name="Img3" Height="30"/>
                 <GroupBox Header="Parameters" x:Name="Params3">
                     <StackPanel Orientation="Horizontal">
-                        <Label Content="a"/>
+                        <Label Content="a" Style="{DynamicResource LabelStyle}"/>
                         <TextBox MinWidth="70" Name="R3TextA">
                             <TextBox.Text>
                                 <Binding Source="{StaticResource CalcC}" Path="A" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
@@ -102,7 +118,7 @@
                                 </Binding>
                             </TextBox.Text>
                         </TextBox>
-                        <Label Content="b"/>
+                        <Label Content="b" Style="{DynamicResource LabelStyle}"/>
                         <TextBox MinWidth="70" Name="R3TextB">
                             <TextBox.Text>
                                 <Binding Source="{StaticResource CalcC}" Path="B" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
@@ -112,7 +128,7 @@
                                 </Binding>
                             </TextBox.Text>
                         </TextBox>
-                        <Label Content="c"/>
+                        <Label Content="c" Style="{DynamicResource LabelStyle}"/>
                         <ComboBox ItemsSource="{Binding Source={StaticResource CalcC}, Path=CValues}" MinWidth="30" Name="R3ComboC">
                             <ComboBox.SelectedItem>
                                 <Binding Source="{StaticResource CalcC}" Path="C" Mode="TwoWay">
@@ -122,7 +138,7 @@
                                 </Binding>
                             </ComboBox.SelectedItem>
                         </ComboBox>
-                        <Label Content="d"/>
+                        <Label Content="d" Style="{DynamicResource LabelStyle}"/>
                         <ComboBox ItemsSource="{Binding Source={StaticResource CalcC}, Path=DValues}" MinWidth="30" Name="R3ComboD">
                             <ComboBox.SelectedItem>
                                 <Binding Source="{StaticResource CalcC}" Path="D" Mode="TwoWay">
@@ -141,7 +157,7 @@
                 <Image x:Name="Img4" Height="70"/>
                 <GroupBox Header="Parameters" x:Name="Params4">
                     <StackPanel Orientation="Horizontal">
-                        <Label Content="c" VerticalAlignment="Center"/>
+                        <Label Content="c" VerticalAlignment="Center" Style="{DynamicResource LabelStyle}"/>
                         <ComboBox ItemsSource="{Binding Source={StaticResource CalcD}, Path=CValues}" MinWidth="30" VerticalAlignment="Center" Name="R4ComboC">
                             <ComboBox.SelectedItem>
                                 <Binding Source="{StaticResource CalcD}" Path="C" Mode="TwoWay">
@@ -151,7 +167,7 @@
                                 </Binding>
                             </ComboBox.SelectedItem>
                         </ComboBox>
-                        <Label Content="d" VerticalAlignment="Center"/>
+                        <Label Content="d" VerticalAlignment="Center" Style="{DynamicResource LabelStyle}"/>
                         <TextBox MinWidth="70" VerticalAlignment="Center" Name="R4TextD">
                             <TextBox.Text>
                                 <Binding Source="{StaticResource CalcD}" Path="D" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
@@ -161,7 +177,7 @@
                                 </Binding>
                             </TextBox.Text>
                         </TextBox>
-                        <Label Content="a" VerticalAlignment="Center"/>
+                        <Label Content="a" VerticalAlignment="Center" Style="{DynamicResource LabelStyle}"/>
                         <TextBox MinWidth="70" VerticalAlignment="Center" Name="R4TextA">
                             <TextBox.Text>
                                 <Binding Source="{StaticResource CalcD}" Path="A" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
@@ -180,7 +196,7 @@
                 <Image x:Name="Img5" Height="70"/>
                 <GroupBox Header="Parameters" x:Name="Params5">
                     <StackPanel Orientation="Horizontal">
-                        <Label Content="N(>0)" VerticalAlignment="Center"/>
+                        <Label Content="N(>0)" VerticalAlignment="Center" Style="{DynamicResource LabelStyle}"/>
                         <TextBox MinWidth="70" VerticalAlignment="Center" Name="R5TextN">
                             <TextBox.Text>
                                 <Binding Source="{StaticResource CalcE}" Path="N" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
@@ -190,7 +206,7 @@
                                 </Binding>
                             </TextBox.Text>
                         </TextBox>
-                        <Label Content="K(>0)" VerticalAlignment="Center"/>
+                        <Label Content="K(>0)" VerticalAlignment="Center" Style="{DynamicResource LabelStyle}"/>
                         <TextBox MinWidth="70" VerticalAlignment="Center" Name="R5TextK">
                             <TextBox.Text>
                                 <Binding Source="{StaticResource CalcE}" Path="K" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
@@ -200,7 +216,7 @@
                                 </Binding>
                             </TextBox.Text>
                         </TextBox>
-                        <Label Content="p" VerticalAlignment="Center"/>
+                        <Label Content="p" VerticalAlignment="Center" Style="{DynamicResource LabelStyle}"/>
                         <TextBox MinWidth="70" VerticalAlignment="Center" Name="R5TextP">
                             <TextBox.Text>
                                 <Binding Source="{StaticResource CalcE}" Path="P" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
@@ -210,7 +226,7 @@
                                 </Binding>
                             </TextBox.Text>
                         </TextBox>
-                        <Label Content="y" VerticalAlignment="Center"/>
+                        <Label Content="y" VerticalAlignment="Center" Style="{DynamicResource LabelStyle}"/>
                         <TextBox MinWidth="70" VerticalAlignment="Center" Name="R5TextY">
                             <TextBox.Text>
                                 <Binding Source="{StaticResource CalcE}" Path="Y" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">

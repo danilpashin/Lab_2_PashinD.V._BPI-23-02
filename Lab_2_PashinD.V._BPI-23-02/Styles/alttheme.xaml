@@ -4,7 +4,7 @@
                     xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
 
     <Style TargetType="local:MainWindow">
-        <Setter Property="Background" Value="#FFEDEDED" />
+        <Setter Property="Background" Value="#FF82AAB7" />
     </Style>
     <Style x:Key="FocusVisual">
         <Setter Property="Control.Template">
@@ -16,24 +16,15 @@
         </Setter>
     </Style>
 
-    <Style x:Key="OptionMarkFocusVisual">
-        <Setter Property="Control.Template">
-            <Setter.Value>
-                <ControlTemplate>
-                    <Rectangle Margin="14,0,0,0" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    <SolidColorBrush x:Key="RadioButton.Static.Background" Color="#FFFFFFFF"/>
+    <SolidColorBrush x:Key="RadioButton.Static.Background" Color="#FF367D6E"/>
     <SolidColorBrush x:Key="RadioButton.Static.Border" Color="#FF707070"/>
-    <SolidColorBrush x:Key="RadioButton.Static.Glyph" Color="#FF367D6E"/>
-    <SolidColorBrush x:Key="RadioButton.MouseOver.Background" Color="#FFF3F9FF"/>
+    <SolidColorBrush x:Key="RadioButton.Static.Glyph" Color="#FFF3F9FF"/>
+    <SolidColorBrush x:Key="RadioButton.MouseOver.Background" Color="#FF367D6E"/>
     <SolidColorBrush x:Key="RadioButton.MouseOver.Border" Color="#FF5593FF"/>
-    <SolidColorBrush x:Key="RadioButton.MouseOver.Glyph" Color="#FF367D6E"/>
-    <SolidColorBrush x:Key="RadioButton.Pressed.Background" Color="#FFD9ECFF"/>
+    <SolidColorBrush x:Key="RadioButton.MouseOver.Glyph" Color="#FFF3F9FF"/>
+    <SolidColorBrush x:Key="RadioButton.Pressed.Background" Color="#FF367D6E"/>
     <SolidColorBrush x:Key="RadioButton.Pressed.Border" Color="#FF3C77DD"/>
-    <SolidColorBrush x:Key="RadioButton.Pressed.Glyph" Color="#FF212121"/>
+    <SolidColorBrush x:Key="RadioButton.Pressed.Glyph" Color="#FFF3F9FF"/>
     <SolidColorBrush x:Key="RadioButton.Disabled.Background" Color="#FFE6E6E6"/>
     <SolidColorBrush x:Key="RadioButton.Disabled.Border" Color="#FFBCBCBC"/>
     <SolidColorBrush x:Key="RadioButton.Disabled.Glyph" Color="#FF707070"/>
@@ -95,7 +86,6 @@
     <SolidColorBrush x:Key="ComboBoxItem.ItemsviewSelected.Background" Color="#FF6AB092"/>
     <SolidColorBrush x:Key="ComboBoxItem.ItemsviewSelected.Border" Color="#FF26A0DA"/>
     <SolidColorBrush x:Key="ComboBoxItem.ItemsviewSelectedHover.Background" Color="#2E0080FF"/>
-
     <SolidColorBrush x:Key="ComboBoxItem.ItemsviewSelectedHover.Border" Color="#99006CD9"/>
     <SolidColorBrush x:Key="ComboBoxItem.ItemsviewSelectedNoFocus.Background" Color="#FF6AB092"/>
     <SolidColorBrush x:Key="ComboBoxItem.ItemsviewSelectedNoFocus.Border" Color="#FFDADADA"/>
@@ -453,23 +443,23 @@
 
     <Style TargetType="GroupBox">
         <Setter Property="BorderBrush" Value="#FF82AAB7"/>
-        <Setter Property="Foreground" Value="#FF226B86"/>
-        <Setter Property="FontFamily" Value="Bahnschrift Light"/>
+        <Setter Property="Foreground" Value="#FFC9E2F7"/>
+        <Setter Property="FontFamily" Value="Tahoma"/>
         <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
     <Style TargetType="TextBox">
-        <Setter Property="Background" Value="#FFF1F1F1"/>
+        <Setter Property="Background" Value="#FFC9E2F7"/>
         <Setter Property="BorderBrush" Value="#FF82AAB7"/>
         <Setter Property="Foreground" Value="#FF226B86"/>
-        <Setter Property="FontFamily" Value="Bahnschrift Light"/>
+        <Setter Property="FontFamily" Value="Tahoma"/>
         <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
     <Style TargetType="Button">
-        <Setter Property="Background" Value="#FF367D6E" />
-        <Setter Property="Foreground" Value="#FFC9E2F7"/>
-        <Setter Property="FontFamily" Value="Segoe UI Black"/>
+        <Setter Property="Background" Value="#FFC9E2F7" />
+        <Setter Property="Foreground" Value="#FF367D6E"/>
+        <Setter Property="FontFamily" Value="Tahoma"/>
         <Setter Property="FontSize" Value="10" />
-        <Setter Property="BorderBrush" Value="#FF47838E"/>
+        <Setter Property="BorderBrush" Value="#FFC9E2F7"/>
         <Setter Property="BorderThickness" Value="2"/>
 
         <Style.Triggers>
@@ -492,5 +482,5 @@
             </MultiTrigger>
         </Style.Triggers>
     </Style>
-    
+
 </ResourceDictionary>

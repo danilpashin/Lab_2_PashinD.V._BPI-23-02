@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,6 +32,7 @@ namespace Lab_2_PashinD.V._BPI_23_02
             setImages();
             setClasses();
             setUsingStart();
+            setStyles();
         }
 
         private void Radio_Checked(object sender, RoutedEventArgs e)
@@ -98,6 +100,24 @@ namespace Lab_2_PashinD.V._BPI_23_02
             Params3.IsEnabled = false;
             Params4.IsEnabled = false;
             Params5.IsEnabled = false;
+        }
+
+        private void setStyles()
+        {
+            List<string> styles = new List<string> { "maintheme", "alttheme" };
+            styleBox.SelectionChanged += ThemeChange;
+            styleBox.ItemsSource = styles;
+            styleBox.SelectedItem = "maintheme";
+
+        }
+
+        private void ThemeChange(object sender, SelectionChangedEventArgs e)
+        {
+            string style = styleBox.SelectedItem as string;
+            var uri = new Uri("Styles/" + style + ".xaml", UriKind.Relative);
+            ResourceDictionary resourceDict = Application.LoadComponent(uri) as ResourceDictionary;
+            Application.Current.Resources.Clear();
+            Application.Current.Resources.MergedDictionaries.Add(resourceDict);
         }
 
         private void setClasses()
